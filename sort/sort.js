@@ -4,6 +4,7 @@ let arr3 = [4,3,1,5];
 
 class Sort {
     
+    // sorting ascending bubble sort
     static bubbleSortAsc(arrInp) {
         let tempArr = Array.from(arrInp);
         for (var i = 0; i < tempArr.length-1; i++) {
@@ -18,6 +19,7 @@ class Sort {
         return tempArr;
     }
     
+    // sort ascending selection sort
     static selectionSortAsc(arrInp){
         let tempArr = Array.from(arrInp);
         let res=[];
@@ -34,6 +36,7 @@ class Sort {
         return tempArr;
     }
     
+    // Sort descending selection sort
     static selectionSortDesc(arrInp){
         let tempArr = Array.from(arrInp);
         let res=[];
@@ -50,7 +53,27 @@ class Sort {
         return tempArr;
     }
     
-
+    /*still unwork need to fix*/
+    // sort ascending insertion sort
+    static insertionAsc(arrInp){
+        let tempArr = Array.from(arrInp);
+        
+        for (var i = 1; i < tempArr.length; i++) {
+            let temp = tempArr[0];
+            
+            if(temp>tempArr[i]){
+                let temp2 = tempArr[i];
+                let tempArr2 = Array.from(tempArr);
+                for (var j= i; j >= 0; j--) {
+                    tempArr[j+1] = tempArr2[i];
+                }
+                tempArr[0] = temp2;
+            }
+        }
+        return tempArr;
+    }
+    
+    // find minimal value
     static minVal(arrInp) {
         let min = arrInp[0];
         for (let i = 0; i < arrInp.length-1; i++) {
@@ -61,6 +84,7 @@ class Sort {
         return min;
     }
 
+    // find maximal value
     static maxVal(arrInp) {
         let max = arrInp[0];
         for (let i = 0; i < arrInp.length-1; i++) {
@@ -73,6 +97,6 @@ class Sort {
 }
 
 
-let sortedArr = Sort.selectionSortDesc(arr2);
-console.log(`array awal: ${arr2}`);
+let sortedArr = Sort.insertionAsc(arr3);
+console.log(`array awal: ${arr3}`);
 console.log(`array akhir: ${sortedArr}`);
